@@ -9,9 +9,7 @@ const ModalComponent = ({isInfo, children, isModalOpen, handleOk, handleCancel, 
 
     const customFooter = (
         <div className={scss.wrapper}>
-            <button className={scss.btnOk} onClick={handleOk}>
-                {translate('modal_onOk')}
-            </button>
+
         </div>
     );
 
