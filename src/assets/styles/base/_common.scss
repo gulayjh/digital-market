@@ -1,0 +1,79 @@
+html {
+  //overflow-y: auto;
+}
+
+body {
+  overflow-x: hidden;
+  color: $common-text-color;
+
+}
+
+main {
+  background: $body;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.content {
+  p {
+    margin: 16px 0;
+  }
+}
+
+.theme--light.v-application {
+  background-color: $body;
+}
+
+.v-card {
+  padding: rem(40) rem(20) rem(20);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $main;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $main;
+}
+
+@include breakpoint($lg) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@include breakpoint($md) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@include breakpoint($sm) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1240px;
+  }
+}

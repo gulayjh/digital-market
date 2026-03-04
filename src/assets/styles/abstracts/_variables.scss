@@ -1,0 +1,62 @@
+//colors
+
+$main: #2BAAE2;
+$secondary: #12475F;
+$setting-bg: #F6F9FC;
+$success: #00B04E;
+$error: #EF626C;
+$info: #F5B40E;
+
+//login
+$prefix-bg-color: #F3F6F7;
+$border-bg: #B7B7B7;
+$dropDown-bg: #EEF6FC;
+
+$table-body:#FCFCFC;
+
+//status
+$status-bg-success: #E8F4EB;
+$status-bg-error: #F9EFF0;
+$status-bg-info: #F9F6E5;
+
+$black: black;
+$common-text-color: #10364D;
+$white: #fff;
+$body: #F5F9FC;
+$light-gray-background: #EAF5FC;
+$yellow: #FFCC4A;
+
+//product item
+$gray-background: #F0F1F4;
+$tag-gray-background: #12475F0C;
+
+//home
+$client-border: #D1D1D1;
+
+//card
+$card-bg: $body;
+$card-border: #D5E0E8;
+$date: #608494;
+
+$bg: rgba(62, 111, 0, 0.04);
+$shadow: 0px 4px 16px 0px rgba(18, 71, 95, 0.07);
+$main-gradient: linear-gradient(94deg, #1559A4 0.71%, #2D99DC 103.41%);
+$table-header: #1559A4;
+
+$list-disc-color: #55BBE8;
+
+//sizes
+$border: 28px;
+$border-md: 21px;
+$border-sm: 18px;
+
+//fonts
+$font-nunito: var(--font-nunito);
+
+
+//breakpoints
+
+$sm: 576px;
+$md: 768px;
+$lg: 991px;
+$xl: 1200px;

@@ -1,0 +1,33 @@
+@import '@/assets/styles/abstracts/index.scss';
+
+.modal {
+
+}
+
+.title {
+
+}
+
+.cancel {
+
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnOk {
+  width: 80%;
+  border-radius: rem(41);
+  padding: rem(15);
+  background-color: $white;
+  cursor: pointer;
+}

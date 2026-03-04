@@ -1,0 +1,16 @@
+export const API = {
+    country: 'country',
+    register: 'auth/register',
+    login: 'auth/login',
+    userDetails: 'auth/user-details',
+    resetPassword: 'auth/reset-password',
+    paymentCreate: 'payment/create',
+    paymentCallback: 'payment/callback',
+    card: 'card',
+    otp: 'auth/confirm-register',
+    subject: 'contactus/subject',
+    subscribe: 'contactus/subscribe',
+    contactUs: 'contactus',
+    postOtp: 'otp',
+    checkMinutes: 'otp/check-minutes',
+};

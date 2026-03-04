@@ -1,0 +1,222 @@
+@import '@/assets/styles/abstracts/index.scss';
+
+.section {
+  padding: rem(64) rem(16);
+  background: $body;
+
+  @include breakpoint($sm) {
+    padding: rem(80) rem(20);
+  }
+
+  @include breakpoint($md) {
+    padding: rem(96) rem(24);
+  }
+}
+
+.container {
+  max-width: rem(1152);
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: rem(48);
+  text-align: center;
+
+  @include breakpoint($sm) {
+    margin-bottom: rem(64);
+  }
+}
+
+.title {
+  margin: 0 0 rem(12);
+  font-size: rem(28);
+  font-weight: 700;
+  color: $secondary;
+
+  @include breakpoint($sm) {
+    font-size: rem(34);
+  }
+}
+
+.subtitle {
+  max-width: rem(560);
+  margin: 0 auto rem(24);
+  font-size: rem(16);
+  line-height: 1.6;
+  color: #475569;
+
+  @include breakpoint($sm) {
+    font-size: rem(18);
+  }
+}
+
+.toggleWrap {
+  display: flex;
+  justify-content: center;
+  gap: rem(8);
+}
+
+.toggleBtn {
+  padding: rem(10) rem(22);
+  border: 0;
+  border-radius: 9999px;
+  font-size: rem(14);
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+  color: $common-text-color;
+  box-shadow: $shadow;
+  @include transition(background color);
+
+  &:hover {
+    background: #f8fafc;
+  }
+
+  &_active {
+    background: $main;
+    color: #fff;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: rem(24);
+  grid-template-columns: 1fr;
+
+  @include breakpoint($sm, 'min') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  padding: rem(24);
+  border-radius: rem(16);
+  border: 1px solid rgba(18, 71, 95, 0.12);
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  @include transition(box-shadow);
+
+  &:hover {
+    box-shadow: $shadow;
+  }
+
+  @include breakpoint($sm) {
+    padding: rem(32);
+  }
+
+  &_highlighted {
+    background: #f1f5f9;
+    border-color: $main;
+    box-shadow: 0 0 0 2px rgba($main, 0.2);
+  }
+}
+
+.badge {
+  position: absolute;
+  top: rem(12);
+  right: rem(12);
+  left: auto;
+  transform: none;
+  padding: rem(4) rem(14);
+  border-radius: 9999px;
+  background: $success;
+  font-size: rem(12);
+  font-weight: 600;
+  color: #fff;
+}
+
+.cardTitle {
+  margin: 0 0 rem(16);
+  font-size: rem(20);
+  font-weight: 700;
+  color: $secondary;
+}
+
+.priceWrap {
+  margin-bottom: rem(24);
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: rem(4);
+}
+
+.priceOriginal {
+  font-size: rem(20);
+  font-weight: 600;
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.price {
+  font-size: rem(36);
+  font-weight: 700;
+  color: $secondary;
+}
+
+.priceSuffix {
+  font-size: rem(16);
+  color: #64748b;
+}
+
+.priceSymbol {
+  font-size: rem(36);
+  font-weight: 700;
+  color: $secondary;
+}
+
+.cta {
+  width: 100%;
+  margin-bottom: rem(24);
+  padding: rem(12) rem(16);
+  border: 0;
+  border-radius: rem(12);
+  background: $black;
+  font-size: rem(16);
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 0.92;
+  }
+
+  &_primary {
+    background: $main;
+  }
+}
+
+.includesLabel {
+  margin-bottom: rem(12);
+  font-size: rem(14);
+  font-weight: 600;
+  color: #475569;
+}
+
+.featureList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+  margin-bottom: rem(8);
+  font-size: rem(14);
+  color: $common-text-color;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.bullet {
+  width: rem(6);
+  height: rem(6);
+  border-radius: 50%;
+  background: $main;
+  flex-shrink: 0;
+}

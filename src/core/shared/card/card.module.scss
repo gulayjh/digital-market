@@ -1,0 +1,10 @@
+@import '@/assets/styles/abstracts/index.scss';
+
+.section {
+  margin-top: rem(15);
+  margin-bottom: rem(35);
+  padding: rem(20) rem(20);
+  background-color: $white;
+  border-radius: rem(28);
+  box-shadow: 0 4px 16px 0 rgba(18, 71, 95, 0.07);
+}

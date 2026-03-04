@@ -1,0 +1,21 @@
+@import '@/assets/styles/abstracts/index.scss';
+
+.button {
+  border-radius: rem(41);
+  padding: rem(15) rem(50);
+  font-weight: bold;
+  outline: none;
+  border: none;
+  font-size: rem(16);
+  cursor: pointer;
+
+  &_primary {
+    color: $white;
+    background-color: $main;
+  }
+
+  &_secondary {
+    color: $main;
+    background-color: $white;
+  }
+}

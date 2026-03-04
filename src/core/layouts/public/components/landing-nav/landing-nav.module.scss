@@ -1,0 +1,248 @@
+@import '@/assets/styles/abstracts/index.scss';
+
+$hero-dark: #0a1628;
+$hero-nav-bg: rgba(10, 22, 40, 0.75);
+$logo-blue: #3399ff;
+$nav-pill-bg: rgba(255, 255, 255, 0.95);
+$nav-pill-border: rgba(85, 187, 232, 0.25);
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: $hero-nav-bg;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0 0 rem(20) rem(20);
+}
+
+.navRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: rem(14) rem(20);
+  gap: rem(16);
+
+  @include breakpoint($sm) {
+    padding: rem(16) rem(24);
+  }
+
+  @include breakpoint($md) {
+    padding: rem(18) rem(28);
+  }
+
+  @include breakpoint($lg) {
+    padding: rem(18) rem(32);
+  }
+}
+
+.navLeft {
+  flex-shrink: 0;
+}
+
+.navCenter {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.navRight {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  font-size: rem(18);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  flex-shrink: 0;
+
+  @include breakpoint($sm) {
+    font-size: rem(20);
+  }
+}
+
+.logoDigital {
+  color: $logo-blue;
+  @include transition(color);
+}
+
+.logoMarket {
+  color: #fff;
+  @include transition(color);
+}
+
+.logo:hover .logoDigital,
+.logo:hover .logoMarket {
+  opacity: 0.95;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: rem(2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItem {
+  position: relative;
+  margin: 0;
+}
+
+.menuItem_dropdown {
+  position: relative;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(4);
+  padding: rem(8) rem(12);
+  font-size: rem(15);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: rem(8);
+  @include transition(color);
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.dropdownTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(6);
+  padding: rem(8) rem(12);
+  font-size: rem(15);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: rem(8);
+  font-family: inherit;
+  @include transition(color);
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.chevron {
+  width: 14px;
+  height: 14px;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.dropdownPanel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: rem(200);
+  margin-top: 0;
+  padding: rem(8) 0;
+  background: rgba(15, 28, 46, 0.98);
+  backdrop-filter: blur(12px);
+  border-radius: rem(12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.submenuLink {
+  display: block;
+  padding: rem(10) rem(16);
+  font-size: rem(14);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  @include transition(background color);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: rem(6) rem(10);
+  background: $nav-pill-bg;
+  border-radius: rem(14);
+  border: 1px solid rgba(85, 187, 232, 0.35);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.userBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(6);
+  padding: rem(8) rem(12);
+  font-size: rem(14);
+  font-weight: 500;
+  color: #0f172a;
+  background: #fff;
+  border: none;
+  border-radius: rem(10);
+  cursor: pointer;
+  font-family: inherit;
+  @include transition(background);
+
+  &:hover {
+    background: #f8fafc;
+  }
+}
+
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(40);
+  height: rem(36);
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: rem(8);
+  cursor: pointer;
+  color: $logo-blue;
+  @include transition(background color);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+}
+
+.iconBtnSvg {
+  width: 20px;
+  height: 20px;
+  color: inherit;
+}

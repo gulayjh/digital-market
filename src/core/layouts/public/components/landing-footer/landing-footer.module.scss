@@ -1,0 +1,132 @@
+@import '@/assets/styles/abstracts/index.scss';
+
+.footer {
+  padding: rem(48) rem(16);
+  /* Top-left lighter navy → bottom-right darker navy */
+  background: linear-gradient(to bottom right, #155a75 0%, #0f4560 50%, #0a3042 100%);
+  color: #fff;
+
+  @include breakpoint($sm) {
+    padding: rem(64) rem(20);
+  }
+}
+
+.container {
+  max-width: rem(1152);
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: rem(40);
+  margin-bottom: rem(40);
+}
+
+.leftBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: rem(16);
+}
+
+.logo {
+  display: inline-flex;
+  font-size: rem(18);
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.logoMarket {
+  font-weight: 700;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.contact a {
+  display: block;
+  font-size: rem(14);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: rem(16);
+
+  a {
+    display: flex;
+    color: #fff;
+    @include transition(opacity);
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  svg {
+    width: rem(24);
+    height: rem(24);
+  }
+}
+
+.columnTitle {
+  margin: 0 0 rem(12);
+  font-size: rem(12);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.columnList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columnItem {
+  margin-bottom: rem(8);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.columnLink {
+  font-size: rem(14);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
+
+.copyright {
+  padding-top: rem(32);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  font-size: rem(14);
+  color: rgba(255, 255, 255, 0.8);
+}
