@@ -7,16 +7,18 @@ import PricingSectionComponent from '@/core/layouts/public/components/pricing-se
 import FAQSectionComponent from '@/core/layouts/public/components/faq-section/faq-section.component';
 import LandingFooterComponent from '@/core/layouts/public/components/landing-footer/landing-footer.component';
 import ChatBubbleComponent from '@/core/layouts/public/components/chat-bubble/chat-bubble.component';
+import LogoMarqueeDivider from '@/core/layouts/public/components/logo-marquee-divider/logo-marquee-divider.component';
 
 export default function LandingPage() {
-  return (
-    <>
-      <LandingNavComponent />
-      <LandingHeroComponent />
-      <ProductsSectionComponent />
-      <PricingSectionComponent />
-      <FAQSectionComponent />
-      <LandingFooterComponent />
-    </>
-  );
+    return (
+        <>
+            <LandingNavComponent/>
+            <LandingHeroComponent/>
+            <ProductsSectionComponent/>
+            <LogoMarqueeDivider/>
+            <PricingSectionComponent/>
+            <FAQSectionComponent/>
+            <LandingFooterComponent/>
+        </>
+    );
 }

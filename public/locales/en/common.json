@@ -98,6 +98,18 @@
     },
     "chat": {
       "greeting": "Hi! 👋 How can I help you?"
+    },
+    "search": {
+      "title": "Search your domain or write prompt with AI",
+      "description": "You can search available domains or create your domain with our AI creation tool.",
+      "placeholder": "Type domain name",
+      "domainSoldLabel": "This domain is already sold",
+      "getViaBroker": "Get through product broker",
+      "pricePerYear": "110 AZN/year",
+      "getItButton": "Get it",
+      "aboutDomain": "About {{domain}} domain",
+      "similarDomainsTitle": "Other similar domains",
+      "bestOffer": "Best offer"
     }
   }
 }

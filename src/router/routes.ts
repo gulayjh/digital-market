@@ -4,6 +4,7 @@ export enum Routes {
     auth = '/auth',
     home = '/',
     landing = '/landing',
+    search = '/search',
     table = '/table',
     form = '/form',
     reports = '/reports',

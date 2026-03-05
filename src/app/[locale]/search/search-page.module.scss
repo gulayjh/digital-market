@@ -1,9 +1,5 @@
 @import '@/assets/styles/abstracts/index.scss';
 
-$hero-from: #1a2b42;
-$hero-to: #060e18;
-$hero-accent: #55bbe8;
-
 @keyframes lightMoveDown {
   0% {
     transform: translateY(-100%);
@@ -13,14 +9,9 @@ $hero-accent: #55bbe8;
   }
 }
 
-.section {
+.topSection {
   position: relative;
-  min-height: 85vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: rem(72) rem(16) rem(80);
+  padding: rem(48) rem(16) rem(56);
   background: linear-gradient(180deg, #0a1628 0%, #0f1c2e 40%, #060e18 100%);
   overflow: hidden;
 
@@ -45,11 +36,11 @@ $hero-accent: #55bbe8;
   }
 
   @include breakpoint($sm) {
-    padding: rem(72) rem(20) rem(96);
+    padding: rem(56) rem(20) rem(64);
   }
 
   @include breakpoint($md) {
-    padding: rem(80) rem(24) rem(120);
+    padding: rem(64) rem(24) rem(72);
   }
 }
 
@@ -63,39 +54,34 @@ $hero-accent: #55bbe8;
 }
 
 .title {
-  margin: 0 0 rem(16);
-  font-size: rem(28);
+  margin: 0 0 rem(12);
+  font-size: rem(24);
   font-weight: 700;
   line-height: 1.2;
   color: #fff;
   letter-spacing: -0.02em;
 
   @include breakpoint($sm) {
-    font-size: rem(36);
-    margin-bottom: rem(20);
+    font-size: rem(28);
+    margin-bottom: rem(16);
   }
 
   @include breakpoint($md) {
-    font-size: rem(48);
-    margin-bottom: rem(24);
-  }
-
-  @include breakpoint($lg) {
-    font-size: rem(52);
+    font-size: rem(32);
+    margin-bottom: rem(20);
   }
 }
 
-.exampleText {
-  margin: 0 0 rem(28);
-  font-size: rem(16);
+.description {
+  margin: 0 0 rem(24);
+  font-size: rem(14);
   font-weight: 500;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 0.02em;
 
   @include breakpoint($sm) {
-    margin-bottom: rem(32);
-    font-size: rem(18);
+    font-size: rem(15);
+    margin-bottom: rem(28);
   }
 }
 
@@ -204,45 +190,10 @@ $hero-accent: #55bbe8;
 }
 
 .aiIcon {
-  color: $hero-accent;
+  color: #55bbe8;
 }
 
-.pillsWrap {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: rem(8);
-  margin-top: rem(24);
-
-  @include breakpoint($sm) {
-    margin-top: rem(28);
-    gap: rem(10);
-  }
-}
-
-.pill {
-  padding: rem(8) rem(16);
-  border: 0;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.12);
-  font-size: rem(14);
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.95);
-  cursor: pointer;
-  @include transition(background color);
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.18);
-    color: #fff;
-  }
-
-  &_active {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-  }
-
-  @include breakpoint($sm) {
-    padding: rem(10) rem(20);
-    font-size: rem(15);
-  }
+.resultsSection {
+  background: #fff;
+  min-height: 50vh;
 }

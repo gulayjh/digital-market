@@ -18,7 +18,7 @@ const AuthProtectedComponent = ({children}: IAuthProtectedRouteProps) => {
         if (pathname.includes(Routes.auth)) {
             return 'auth';
         }
-        if (pathname.includes(Routes.landing)) {
+        if (pathname.includes(Routes.landing) || pathname.includes(Routes.search)) {
             return 'landing';
         }
         return 'public';

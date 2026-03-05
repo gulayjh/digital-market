@@ -98,6 +98,18 @@
     },
     "chat": {
       "greeting": "Salam! 👋 Sizə necə kömək edə bilərəm?"
+    },
+    "search": {
+      "title": "Domeninizi axtarın və ya AI ilə yazın",
+      "description": "Mövcud domenləri axtara və ya AI yaratma alətimizlə domeninizi yarada bilərsiniz.",
+      "placeholder": "Domen adını yazın",
+      "domainSoldLabel": "Bu domain artıq satılmışdır",
+      "getViaBroker": "Məhsul broker vasitəsilə əldə edin",
+      "pricePerYear": "110 AZN/illik",
+      "getItButton": "Əldə et",
+      "aboutDomain": "{{domain}} domaini haqqında",
+      "similarDomainsTitle": "Digər oxşar domainlər",
+      "bestOffer": "Ən uyğun təklif"
     }
   }
 }

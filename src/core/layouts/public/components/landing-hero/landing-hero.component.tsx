@@ -1,11 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter, useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import css from './landing-hero.module.scss';
 import ChatBubbleComponent from '@/core/layouts/public/components/chat-bubble/chat-bubble.component';
+import { Routes } from '@/router/routes';
 
 const TLD_KEYS = ['tldCom', 'tldAz', 'tldBiz', 'tldCo', 'tldOrgAz'] as const;
 
@@ -28,8 +30,19 @@ function SparkleIcon({ className }: { className?: string }) {
 
 export default function LandingHeroComponent() {
   const { t } = useTranslation();
+  const router = useRouter();
+  const params = useParams();
+  const locale = (params?.locale as string) || 'az';
   const [domain, setDomain] = useState('');
   const [selectedTld, setSelectedTld] = useState<string>(TLD_KEYS[0]);
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const query = domain.trim();
+    if (query) {
+      router.push(`/${locale}${Routes.search}?q=${encodeURIComponent(query)}`);
+    }
+  };
 
   return (
     <section className={css.section}>
@@ -51,11 +64,12 @@ export default function LandingHeroComponent() {
           bakushopping.az|
         </motion.p>
 
-        <motion.div
+        <motion.form
           className={css.searchWrap}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+          onSubmit={handleSearchSubmit}
         >
           <div className={css.searchBox}>
             <div className={css.inputWrap}>
@@ -65,10 +79,13 @@ export default function LandingHeroComponent() {
                 onChange={(e) => setDomain(e.target.value)}
                 placeholder={t('landing.hero.placeholder')}
                 className={css.input}
+                aria-label={t('landing.hero.placeholder')}
               />
-              <SearchIcon className={css.searchIcon} />
+              <button type='submit' className={css.searchIconBtn} aria-label='Search'>
+                <SearchIcon className={css.searchIcon} />
+              </button>
             </div>
-            <motion.button
+      {/*      <motion.button
               type='button'
               className={css.aiBtn}
               whileHover={{ scale: 1.05 }}
@@ -77,9 +94,9 @@ export default function LandingHeroComponent() {
             >
               <SparkleIcon className={css.aiIcon} />
               {t('landing.hero.aiSearch')}
-            </motion.button>
+            </motion.button>*/}
           </div>
-        </motion.div>
+        </motion.form>
 
         <motion.div
           className={css.pillsWrap}
