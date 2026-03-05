@@ -4,12 +4,52 @@ $hero-from: #1a2b42;
 $hero-to: #060e18;
 $hero-accent: #55bbe8;
 
-@keyframes lightMoveDown {
-  0% {
-    transform: translateY(-100%);
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1);
   }
-  100% {
-    transform: translateY(100vh);
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@keyframes orbDrift {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  33% {
+    transform: translate(-45%, -55%) scale(1.06);
+    opacity: 0.9;
+  }
+  66% {
+    transform: translate(-55%, -48%) scale(0.95);
+    opacity: 0.6;
+  }
+}
+
+@keyframes searchFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes btnGlow {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba($hero-accent, 0.35);
+  }
+  50% {
+    box-shadow: 0 4px 28px rgba($hero-accent, 0.55), 0 0 12px rgba($hero-accent, 0.2);
   }
 }
 
@@ -21,26 +61,47 @@ $hero-accent: #55bbe8;
   align-items: center;
   justify-content: center;
   padding: rem(72) rem(16) rem(80);
-  background: linear-gradient(180deg, #0a1628 0%, #0f1c2e 40%, #060e18 100%);
+  background: linear-gradient(180deg, #0b1527 0%, #0d1a2d 35%, #081220 70%, #060e18 100%);
   overflow: hidden;
 
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60vh;
+    top: 38%;
+    left: 50%;
+    width: 800px;
+    height: 500px;
     z-index: 0;
-    background: linear-gradient(
-      180deg,
-      transparent 0%,
-      rgba(85, 187, 232, 0.04) 20%,
-      rgba(85, 187, 232, 0.1) 50%,
-      rgba(85, 187, 232, 0.04) 80%,
-      transparent 100%
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba($hero-accent, 0.12) 0%,
+      rgba($hero-accent, 0.06) 35%,
+      rgba($hero-accent, 0.02) 60%,
+      transparent 80%
     );
-    animation: lightMoveDown 12s linear infinite;
+    transform: translate(-50%, -50%);
+    animation: glowPulse 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 65%;
+    width: 400px;
+    height: 350px;
+    z-index: 0;
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(#1559A4, 0.1) 0%,
+      rgba(#1559A4, 0.04) 40%,
+      transparent 70%
+    );
+    transform: translate(-50%, -50%);
+    animation: orbDrift 12s ease-in-out infinite;
     pointer-events: none;
   }
 
@@ -63,40 +124,65 @@ $hero-accent: #55bbe8;
 }
 
 .title {
-  margin: 0 0 rem(16);
-  font-size: rem(28);
+  margin: 0 auto rem(28);
+  max-width: rem(780);
+  font-size: rem(54);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
   color: #fff;
   letter-spacing: -0.02em;
 
   @include breakpoint($sm) {
-    font-size: rem(36);
-    margin-bottom: rem(20);
+    font-size: rem(38);
+    margin-bottom: rem(32);
+    line-height: 1.22;
   }
 
   @include breakpoint($md) {
     font-size: rem(48);
-    margin-bottom: rem(24);
+    margin-bottom: rem(40);
+    max-width: rem(780);
   }
 
   @include breakpoint($lg) {
-    font-size: rem(52);
+    font-size: rem(54);
+    letter-spacing: -0.025em;
   }
 }
 
-.exampleText {
-  margin: 0 0 rem(28);
-  font-size: rem(16);
+.subtitle {
+  margin: 0 auto rem(28);
+  font-size: rem(18);
   font-weight: 500;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.01em;
+  min-height: rem(28);
 
   @include breakpoint($sm) {
+    font-size: rem(20);
     margin-bottom: rem(32);
-    font-size: rem(18);
+    min-height: rem(32);
   }
+
+  @include breakpoint($md) {
+    font-size: rem(22);
+    margin-bottom: rem(36);
+  }
+}
+
+.typed {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 2px;
+  background: $hero-accent;
+  vertical-align: text-bottom;
+  animation: cursorBlink 0.8s step-end infinite;
 }
 
 .searchWrap {
@@ -110,14 +196,17 @@ $hero-accent: #55bbe8;
   flex-direction: row;
   align-items: center;
   gap: 0;
-  padding: rem(8);
+  padding: rem(6);
   background: #fff;
-  border-radius: rem(20);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  border-radius: rem(28);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 80px rgba($hero-accent, 0.08);
+  animation: searchFloat 6s ease-in-out 1.2s infinite;
 
   @include breakpoint($sm) {
-    padding: rem(10);
-    border-radius: rem(24);
+    padding: rem(8);
+    border-radius: rem(32);
   }
 }
 
@@ -126,20 +215,20 @@ $hero-accent: #55bbe8;
   min-width: 0;
   display: flex;
   align-items: center;
-  border-radius: rem(16);
+  border-radius: rem(24);
   background: #fff;
 
   @include breakpoint($sm) {
-    border-radius: rem(20);
+    border-radius: rem(28);
   }
 }
 
 .input {
   flex: 1;
   min-width: 0;
-  padding: rem(16) rem(20);
+  padding: rem(14) rem(20);
   border: 0;
-  border-radius: rem(16);
+  border-radius: rem(24);
   font-size: rem(16);
   color: #0f172a;
   background: transparent;
@@ -150,61 +239,47 @@ $hero-accent: #55bbe8;
   }
 
   @include breakpoint($sm) {
-    padding: rem(18) rem(24);
+    padding: rem(16) rem(24);
     font-size: rem(18);
-    border-radius: rem(20);
+    border-radius: rem(28);
   }
 }
 
-.searchIconBtn {
+.searchBtn {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: rem(8);
-  padding: 0 rem(20) 0 0;
+  width: rem(48);
+  height: rem(48);
   border: 0;
-  background: transparent;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $hero-accent 0%, #1a7bb5 100%);
+  color: #fff;
   cursor: pointer;
-  color: #94a3b8;
-}
-
-.searchIcon {
-  flex-shrink: 0;
-  color: inherit;
-}
-
-.aiBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: rem(8);
-  padding: rem(16) rem(22);
-  border: 0;
-  border-radius: rem(16);
-  background: #fff;
-  font-size: rem(15);
-  font-weight: 600;
-  color: #0f172a;
-  cursor: pointer;
-  flex-shrink: 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  @include transition(box-shadow background);
+  box-shadow: 0 4px 16px rgba($hero-accent, 0.35);
+  animation: btnGlow 3s ease-in-out infinite;
 
   &:hover {
-    background: #f8fafc;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 24px rgba($hero-accent, 0.5);
+    animation: none;
   }
 
   @include breakpoint($sm) {
-    padding: rem(18) rem(26);
-    font-size: rem(16);
-    border-radius: rem(20);
+    width: rem(54);
+    height: rem(54);
   }
 }
 
-.aiIcon {
-  color: $hero-accent;
+.searchBtnIcon {
+  width: rem(20);
+  height: rem(20);
+  color: inherit;
+
+  @include breakpoint($sm) {
+    width: rem(22);
+    height: rem(22);
+  }
 }
 
 .pillsWrap {
@@ -221,28 +296,31 @@ $hero-accent: #55bbe8;
 }
 
 .pill {
-  padding: rem(8) rem(16);
-  border: 0;
+  padding: rem(8) rem(18);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
   font-size: rem(14);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
-  @include transition(background color);
+  backdrop-filter: blur(4px);
+  @include transition(background color border-color);
 
   &:hover {
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.22);
     color: #fff;
   }
 
   &_active {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba($hero-accent, 0.15);
+    border-color: rgba($hero-accent, 0.4);
     color: #fff;
   }
 
   @include breakpoint($sm) {
-    padding: rem(10) rem(20);
+    padding: rem(10) rem(22);
     font-size: rem(15);
   }
 }
