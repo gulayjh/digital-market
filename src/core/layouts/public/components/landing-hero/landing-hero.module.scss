@@ -55,24 +55,10 @@ $hero-accent: #55bbe8;
 
 @keyframes beamDrop {
   0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 0;
+    top: -200px;
   }
   100% {
-    transform: translateY(200%);
-    opacity: 0;
+    top: 100%;
   }
 }
 
@@ -139,61 +125,68 @@ $hero-accent: #55bbe8;
 
 .beamsWrap {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 0;
   display: flex;
+  flex-flow: row;
+  place-content: center space-around;
+  align-items: center;
   pointer-events: none;
   overflow: hidden;
 }
 
 .beam {
-  flex: 1;
-  position: relative;
+  display: flex;
+  flex-flow: row;
+  place-content: center space-between;
+  align-items: center;
+  width: 14%;
   height: 100%;
+  position: relative;
   overflow: hidden;
+}
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 1px;
-    background: rgba($hero-accent, 0.035);
-  }
+.beamLine {
+  background-color: rgba(255, 255, 255, 0.07);
+  width: 1px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .beamLight {
   position: absolute;
-  top: 0;
-  left: 50%;
-  margin-left: -1px;
-  width: 2px;
-  height: 35%;
-  transform: translateY(-100%);
-  opacity: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba($hero-accent, 0.1) 15%,
-    rgba($hero-accent, 0.3) 40%,
-    rgba($hero-accent, 0.4) 50%,
-    rgba($hero-accent, 0.3) 60%,
-    rgba($hero-accent, 0.1) 85%,
-    transparent 100%
-  );
-  filter: blur(2px);
-  animation: beamDrop var(--beam-duration, 8s) var(--beam-delay, 0s) ease-in-out infinite;
+  top: -200px;
+  left: 0;
+  right: 0;
+  height: 200px;
+  z-index: 2;
+  overflow: hidden;
+  animation: beamDrop var(--beam-duration, 6s) var(--beam-delay, 0s) linear infinite;
+
+  &_down {
+    background: linear-gradient(
+      0deg,
+      rgba($hero-accent, 1) 0%,
+      transparent 100%
+    );
+  }
+
+  &_up {
+    background: linear-gradient(
+      180deg,
+      lighten($hero-accent, 15%) 0%,
+      transparent 100%
+    );
+  }
 }
 
-.beam_1 { --beam-delay: 0s;    --beam-duration: 7s;   }
-.beam_2 { --beam-delay: 2.5s;  --beam-duration: 8.5s; }
-.beam_3 { --beam-delay: 5.2s;  --beam-duration: 7.8s; }
-.beam_4 { --beam-delay: 1.8s;  --beam-duration: 9s;   }
-.beam_5 { --beam-delay: 4s;    --beam-duration: 8s;   }
+.beam_1 .beamLine:nth-child(1) .beamLight { --beam-delay: 0s;   --beam-duration: 5s;  }
+.beam_1 .beamLine:nth-child(2) .beamLight { --beam-delay: 3s;   --beam-duration: 6s;  }
+.beam_2 .beamLine:nth-child(1) .beamLight { --beam-delay: 1.5s; --beam-duration: 5.5s; }
+.beam_2 .beamLine:nth-child(2) .beamLight { --beam-delay: 4.5s; --beam-duration: 6.5s; }
+.beam_3 .beamLine:nth-child(1) .beamLight { --beam-delay: 2.8s; --beam-duration: 7s;  }
+.beam_3 .beamLine:nth-child(2) .beamLight { --beam-delay: 0.8s; --beam-duration: 5.8s; }
 
 .content {
   position: relative;

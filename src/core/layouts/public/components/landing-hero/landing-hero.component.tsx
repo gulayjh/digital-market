@@ -105,9 +105,14 @@ export default function LandingHeroComponent() {
   return (
     <section className={css.section}>
       <div className={css.beamsWrap} aria-hidden='true'>
-        {[1, 2, 3, 4, 5].map((i) => (
+        {[1, 2, 3].map((i) => (
           <div key={i} className={classNames(css.beam, css[`beam_${i}`])}>
-            <div className={css.beamLight} />
+            <div className={css.beamLine}>
+              <div className={classNames(css.beamLight, css.beamLight_down)} />
+            </div>
+            <div className={css.beamLine}>
+              <div className={classNames(css.beamLight, css.beamLight_up)} />
+            </div>
           </div>
         ))}
       </div>
