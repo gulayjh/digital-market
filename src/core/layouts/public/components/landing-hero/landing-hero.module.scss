@@ -53,6 +53,29 @@ $hero-accent: #55bbe8;
   }
 }
 
+@keyframes beamDrop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+}
+
 .section {
   position: relative;
   min-height: 85vh;
@@ -113,6 +136,64 @@ $hero-accent: #55bbe8;
     padding: rem(80) rem(24) rem(120);
   }
 }
+
+.beamsWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  display: flex;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.beam {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: rgba($hero-accent, 0.035);
+  }
+}
+
+.beamLight {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -1px;
+  width: 2px;
+  height: 35%;
+  transform: translateY(-100%);
+  opacity: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba($hero-accent, 0.1) 15%,
+    rgba($hero-accent, 0.3) 40%,
+    rgba($hero-accent, 0.4) 50%,
+    rgba($hero-accent, 0.3) 60%,
+    rgba($hero-accent, 0.1) 85%,
+    transparent 100%
+  );
+  filter: blur(2px);
+  animation: beamDrop var(--beam-duration, 8s) var(--beam-delay, 0s) ease-in-out infinite;
+}
+
+.beam_1 { --beam-delay: 0s;    --beam-duration: 7s;   }
+.beam_2 { --beam-delay: 2.5s;  --beam-duration: 8.5s; }
+.beam_3 { --beam-delay: 5.2s;  --beam-duration: 7.8s; }
+.beam_4 { --beam-delay: 1.8s;  --beam-duration: 9s;   }
+.beam_5 { --beam-delay: 4s;    --beam-duration: 8s;   }
 
 .content {
   position: relative;

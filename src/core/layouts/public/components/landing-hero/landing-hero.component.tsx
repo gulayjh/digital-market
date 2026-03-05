@@ -104,6 +104,13 @@ export default function LandingHeroComponent() {
 
   return (
     <section className={css.section}>
+      <div className={css.beamsWrap} aria-hidden='true'>
+        {[1, 2, 3, 4, 5].map((i) => (
+          <div key={i} className={classNames(css.beam, css[`beam_${i}`])}>
+            <div className={css.beamLight} />
+          </div>
+        ))}
+      </div>
       <div className={css.content}>
         <motion.h1
           className={css.title}
